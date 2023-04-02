@@ -121,11 +121,14 @@ final class UserRecord
     }
 
     /**
-     * @param array{mfaInfo: MfaInfoResponseShape} $data
+     * @param array{mfaInfo: list<MfaInfoResponseShape>} $data
      */
-    private static function mfaInfoFromResponseData(array $data): MfaInfo
+    private static function mfaInfoFromResponseData(array $data): array
     {
-        return MfaInfo::fromResponseData($data['mfaInfo']);
+        return array_map(
+            static fn (array $mfaInfoData) => MfaInfo::fromResponseData($mfaInfoData),
+            $data['mfaInfo'],
+        );
     }
 
     /**
