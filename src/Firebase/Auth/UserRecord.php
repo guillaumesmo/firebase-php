@@ -92,7 +92,7 @@ final class UserRecord
 
         $mfaInfo = array_key_exists('mfaInfo', $data)
             ? self::mfaInfoFromResponseData($data)
-            : null;
+            : [];
 
         return new self(
             $data['localId'],
