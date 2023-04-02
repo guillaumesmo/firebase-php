@@ -46,6 +46,7 @@ final class UserRecord
      * @param non-empty-string|null $phoneNumber
      * @param non-empty-string|null $photoUrl
      * @param list<UserInfo> $providerData
+     * @param list<MfaInfo> $mfaInfo
      * @param non-empty-string|null $passwordHash
      * @param non-empty-string|null $passwordSalt
      * @param array<non-empty-string, mixed> $customClaims
@@ -61,7 +62,7 @@ final class UserRecord
         public readonly bool $disabled,
         public readonly UserMetaData $metadata,
         public readonly array $providerData,
-        public readonly ?MfaInfo $mfaInfo,
+        public readonly array $mfaInfo,
         public readonly ?string $passwordHash,
         public readonly ?string $passwordSalt,
         public readonly array $customClaims,
